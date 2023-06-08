@@ -1,7 +1,10 @@
+import 'package:ecDart/EthiopianCalendar.dart';
+
 import 'Bahirehasab.dart';
 
 const int ethiopicEpoch = 2796;
 const int unixEpoch = 719163;
+const int dayMilliSec = 86400000;
 const List<String> _days = [
   "Sunday",
   "Monday",
@@ -89,4 +92,8 @@ int fixedFromEthiopic(int year, int month, int day) {
       (year ~/ 4) +
       30 * (month - 1) +
       day);
+}
+
+int dateToEpoch(int year, int month, int day) {
+  return (fixedFromEthiopic(year, month, day) - unixEpoch) * dayMilliSec;
 }

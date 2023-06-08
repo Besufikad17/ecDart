@@ -1,8 +1,8 @@
-import './GregorianCalender.dart';
+import 'GregorianCalendar.dart';
 import './Bahirehasab.dart';
 import './util.dart';
 
-class EthiopianCalender {
+class EthiopianCalendar {
   int? year;
   int? month;
   int? day;
@@ -10,14 +10,14 @@ class EthiopianCalender {
   bool isHoliday = false;
   String? month_name;
 
-  EthiopianCalender({this.year, this.month, this.day}) {
+  EthiopianCalendar({this.year, this.month, this.day}) {
     this.month_name = months[this.month! - 1];
     this.holiday_name =
         getHoliday(months[this.month! - 1], this.day, this.year);
     this.isHoliday = holiday_name != "" ? true : false;
   }
 
-  EthiopianCalender.now() {
+  EthiopianCalendar.now() {
     var fixed = fixedFromUnix(DateTime.now().millisecondsSinceEpoch);
     this.year = ((4 * (fixed - ethiopicEpoch) + 1463) ~/ 1461);
     this.month = (((fixed - fixedFromEthiopic(this.year!, 1, 1)) ~/ 30) + 1);
@@ -28,35 +28,42 @@ class EthiopianCalender {
     this.isHoliday = holiday_name != "" ? true : false;
   }
 
-  GregorianCalender toGC() {
-    var ec = new EthiopianCalender();
-    // TODO: Implement convertor
-    return new GregorianCalender();
+  GregorianCalendar toGC() {
+    return new GregorianCalendar(
+        year: DateTime.fromMillisecondsSinceEpoch(
+                dateToEpoch(this.year!, this.month!, this.day!))
+            .year,
+        month: DateTime.fromMillisecondsSinceEpoch(
+                dateToEpoch(this.year!, this.month!, this.day!))
+            .month,
+        day: DateTime.fromMillisecondsSinceEpoch(
+                dateToEpoch(this.year!, this.month!, this.day!))
+            .day);
   }
 
-  EthiopianCalender nextMonth() {
+  EthiopianCalendar nextMonth() {
     var isLastMonth = this.month == 13 || (this.month == 12 && this.day! > 6);
-    return new EthiopianCalender(
+    return new EthiopianCalendar(
         year: isLastMonth ? this.year! + 1 : this.year,
         month: isLastMonth ? 1 : this.month! + 1,
         day: this.day);
   }
 
-  EthiopianCalender previousMonth() {
+  EthiopianCalendar previousMonth() {
     var isFirstMonth = this.month == 1;
-    return new EthiopianCalender(
+    return new EthiopianCalendar(
         year: isFirstMonth ? this.year! - 1 : this.year,
         month: isFirstMonth ? (this.day! > 6 ? 12 : 13) : this.month! - 1,
         day: this.day);
   }
 
-  EthiopianCalender nextYear() {
-    return EthiopianCalender(
+  EthiopianCalendar nextYear() {
+    return EthiopianCalendar(
         year: this.year! + 1, month: this.month, day: this.day);
   }
 
-  EthiopianCalender previousYear() {
-    return EthiopianCalender(
+  EthiopianCalendar previousYear() {
+    return EthiopianCalendar(
         year: this.year! - 1, month: this.month, day: this.day);
   }
 }

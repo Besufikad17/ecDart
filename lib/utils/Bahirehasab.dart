@@ -1,4 +1,4 @@
-import 'EthiopianCalender.dart';
+import 'EthiopianCalendar.dart';
 
 const List<String> days = [
   "እሁድ",
@@ -67,7 +67,7 @@ class Bahirehasab {
   Bahirehasab.named({this.year});
 
   Bahirehasab() {
-    this.year = new EthiopianCalender().year;
+    this.year = new EthiopianCalendar().year;
   }
 
   String getEvangelist({bool returnName = false}) {
