@@ -1,4 +1,4 @@
-import 'package:ecDart/EthiopianCalendar.dart';
+import 'package:ecDart/calendar/EthiopianCalendar.dart';
 import 'package:test/test.dart';
 
 void main() {

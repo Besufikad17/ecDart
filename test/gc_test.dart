@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:ecDart/GregorianCalendar.dart';
+import 'package:ecDart/calendar/GregorianCalendar.dart';
 import 'package:test/test.dart';
 
 void main() {

@@ -1,19 +1,10 @@
-import 'package:ecDart/EthiopianCalendar.dart';
+import 'package:ecDart/calendar/EthiopianCalendar.dart';
 
 import 'Bahirehasab.dart';
 
 const int ethiopicEpoch = 2796;
 const int unixEpoch = 719163;
 const int dayMilliSec = 86400000;
-const List<String> _days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednsday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
 
 Iterable<Map<String, dynamic>> getHolidays(int year) {
   var bh = new Bahirehasab.named(year: year);
@@ -69,7 +60,7 @@ int getGreatestMultiple(int n, int x) {
   return multiple;
 }
 
-String getDayName(int? month, int? day, int? year) {
+int getDayName(int? month, int? day, int? year) {
   month = month! > 2 ? month - 2 : month + 10;
   var D = int.parse(year.toString().substring(2, 4));
   var C = int.parse(year.toString().substring(0, 2));
@@ -77,9 +68,9 @@ String getDayName(int? month, int? day, int? year) {
       (day! + (((13 * month) - 1) / 5) + D + (D / 4) + (C / 4) - 2 * C).toInt();
   if (F < 0) {
     var r = F - getGreatestMultiple(7, F);
-    return _days[r];
+    return r;
   } else {
-    return _days[F % 7];
+    return F % 7;
   }
 }
 
