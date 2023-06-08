@@ -12,6 +12,15 @@ void main() {
     expect(now.year, 2015);
     expect(now.month_name, "ሰኔ");
     expect(now.day, 1);
+    expect(now.day_name, "ሐሙስ");
+  });
+
+  test('testing toGC()', () {
+    var ec = new EthiopianCalendar(year: 2015, month: 10, day: 1);
+    var gc = ec.toGC();
+    expect(gc.month_name, "June");
+    expect(gc.year, 2023);
+    expect(gc.day_name, "Thursday");
   });
 
   test('testing nextMonth() EthiopianCalendar', () {
