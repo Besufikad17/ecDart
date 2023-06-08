@@ -1,5 +1,17 @@
 import 'Bahirehasab.dart';
 
+const int ethiopicEpoch = 2796;
+const int unixEpoch = 719163;
+const List<String> _days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednsday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
+
 Iterable<Map<String, dynamic>> getHolidays(int year) {
   var bh = new Bahirehasab.named(year: year);
   var tensae = bh.getSingleBeal("ትንሳኤ");
@@ -62,8 +74,19 @@ String getDayName(int? month, int? day, int? year) {
       (day! + (((13 * month) - 1) / 5) + D + (D / 4) + (C / 4) - 2 * C).toInt();
   if (F < 0) {
     var r = F - getGreatestMultiple(7, F);
-    return days[r];
+    return _days[r];
   } else {
-    return days[F % 7];
+    return _days[F % 7];
   }
+}
+
+int fixedFromUnix(int ms) => (unixEpoch + (ms ~/ 86400000));
+
+int fixedFromEthiopic(int year, int month, int day) {
+  return (ethiopicEpoch -
+      1 +
+      365 * (year - 1) +
+      (year ~/ 4) +
+      30 * (month - 1) +
+      day);
 }

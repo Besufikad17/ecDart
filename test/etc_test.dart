@@ -2,45 +2,50 @@ import 'package:ecDart/EthiopianCalender.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('testing creating EthiopianCalender object', () {
-    var ec = new EthiopianCalender.named(year: 2015, month: 1, day: 1);
+  test('testing EthiopianCalender constructors', () {
+    var ec = new EthiopianCalender(year: 2015, month: 1, day: 1);
     expect(ec.month_name, "መስከረም");
     expect(ec.isHoliday, true);
     expect(ec.holiday_name, "አዲስ አመት");
+
+    var now = new EthiopianCalender.now();
+    expect(now.year, 2015);
+    expect(now.month_name, "ሰኔ");
+    expect(now.day, 1);
   });
 
   test('testing nextMonth() EthiopianCalender', () {
-    var ec = new EthiopianCalender.named(year: 2015, month: 1, day: 1);
+    var ec = new EthiopianCalender(year: 2015, month: 1, day: 1);
     var next_month = ec.nextMonth();
     expect(next_month.month_name, "ጥቅምት");
     expect(next_month.year, 2015);
 
-    var ec2 = new EthiopianCalender.named(year: 2015, month: 13, day: 5);
+    var ec2 = new EthiopianCalender(year: 2015, month: 13, day: 5);
     var next_month2 = ec2.nextMonth();
     expect(next_month2.month_name, "መስከረም");
     expect(next_month2.year, 2016);
   });
 
   test('testing previousMonth() EthiopianCalender', () {
-    var ec = new EthiopianCalender.named(year: 2015, month: 1, day: 1);
+    var ec = new EthiopianCalender(year: 2015, month: 1, day: 1);
     var prev_month = ec.previousMonth();
     expect(prev_month.month_name, "ጷጉሜን");
     expect(prev_month.year, 2014);
 
-    var ec2 = new EthiopianCalender.named(year: 2015, month: 13, day: 5);
+    var ec2 = new EthiopianCalender(year: 2015, month: 13, day: 5);
     var prev_month2 = ec2.previousMonth();
     expect(prev_month2.month_name, "ነሐሴ");
     expect(prev_month2.year, 2015);
   });
 
   test('testing nextYear()', () {
-    var ec = new EthiopianCalender.named(year: 2015, month: 1, day: 1);
+    var ec = new EthiopianCalender(year: 2015, month: 1, day: 1);
     var next_year = ec.nextYear();
     expect(next_year.year, 2016);
   });
 
   test('testing previousYear()', () {
-    var ec = new EthiopianCalender.named(year: 2015, month: 1, day: 1);
+    var ec = new EthiopianCalender(year: 2015, month: 1, day: 1);
     var prev_year = ec.previousYear();
     expect(prev_year.year, 2014);
   });
