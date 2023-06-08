@@ -45,14 +45,20 @@ class EthiopianCalender {
   }
 
   EthiopianCalender previousMonth() {
-    return new EthiopianCalender.named();
+    var isFirstYear = this.month == 1;
+    return new EthiopianCalender.named(
+        year: isFirstYear ? this.year! - 1 : this.year,
+        month: isFirstYear ? (this.day! > 6 ? 12 : 13) : this.month! - 1,
+        day: this.day);
   }
 
   EthiopianCalender nextYear() {
-    return EthiopianCalender.named();
+    return EthiopianCalender.named(
+        year: this.year! + 1, month: this.month, day: this.day);
   }
 
   EthiopianCalender previousYear() {
-    return EthiopianCalender.named();
+    return EthiopianCalender.named(
+        year: this.year! - 1, month: this.month, day: this.day);
   }
 }

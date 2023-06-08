@@ -40,3 +40,30 @@ String getHoliday(String? month, int? day, int? year) {
   }
   return "";
 }
+
+int getGreatestMultiple(int n, int x) {
+  var multiple = n;
+  var multiplier = -1;
+  while (true) {
+    if (multiple < x) {
+      break;
+    }
+    multiple = n * multiplier;
+    multiplier--;
+  }
+  return multiple;
+}
+
+String getDayName(int? month, int? day, int? year) {
+  month = month! > 2 ? month - 2 : month + 10;
+  var D = int.parse(year.toString().substring(2, 4));
+  var C = int.parse(year.toString().substring(0, 2));
+  var F =
+      (day! + (((13 * month) - 1) / 5) + D + (D / 4) + (C / 4) - 2 * C).toInt();
+  if (F < 0) {
+    var r = F - getGreatestMultiple(7, F);
+    return days[r];
+  } else {
+    return days[F % 7];
+  }
+}
