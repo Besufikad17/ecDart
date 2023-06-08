@@ -1,4 +1,6 @@
 import './GregorianCalender.dart';
+import './Bahirehasab.dart';
+import './util.dart';
 
 class EthiopianCalender {
   int? year;
@@ -8,37 +10,38 @@ class EthiopianCalender {
   String? holiday_name;
   String? month_name;
 
-  static const List<String> days = [
-    "ሰኞ",
-    "ማግሰኞ",
-    "ረቡዕ",
-    "ሐሙስ",
-    "አርብ",
-    "ቅዳሜ",
-    "እሁድ",
-  ];
-
   EthiopianCalender.named({this.year, this.month, this.day}) {
     this.month_name = days[this.day! - 1];
+    this.holiday_name =
+        getHoliday(months[this.month! - 1], this.day, this.year);
+    this.isHoliday = holiday_name != null ? true : false;
   }
 
   EthiopianCalender() {
     var gc = new GregorianCalender();
     var ec = gc.toEc();
 
-    this.year = DateTime.now().year;
-    this.month = DateTime.now().month;
-    this.day = DateTime.now().day;
-    this.isHoliday = false;
+    this.year = ec.year;
+    this.month = ec.month;
+    this.day = ec.day;
+    this.month_name = months[this.month! - 1];
+    this.holiday_name =
+        getHoliday(months[this.month! - 1], this.day, this.year);
+    this.isHoliday = holiday_name != null ? true : false;
   }
 
   GregorianCalender toGC() {
     var ec = new EthiopianCalender();
+    // TODO: Implement convertor
     return new GregorianCalender();
   }
 
   EthiopianCalender nextMonth() {
-    return new EthiopianCalender.named();
+    var isNewYear = this.month == 13 || (this.month == 12 && this.day! > 6);
+    return new EthiopianCalender.named(
+        year: isNewYear ? this.year! + 1 : this.year,
+        month: isNewYear ? 1 : this.month,
+        day: this.day);
   }
 
   EthiopianCalender previousMonth() {

@@ -1,33 +1,35 @@
 import 'EthiopianCalender.dart';
 
+const List<String> days = [
+  "ሰኞ",
+  "ማግሰኞ",
+  "ረቡዕ",
+  "ሐሙስ",
+  "አርብ",
+  "ቅዳሜ",
+  "እሁድ",
+];
+
+const List<String?> months = [
+  "መስከረም",
+  "ጥቅምት",
+  "ኅዳር",
+  "ታኅሳስ",
+  "ጥር",
+  "የካቲት",
+  "መጋቢት",
+  "ሚያዝያ",
+  "ግንቦት",
+  "ሰኔ",
+  "ኃምሌ",
+  "ነሐሴ",
+  "ጷጉሜን"
+];
+
 class Bahirehasab {
   int? year;
 
   static const List<String> evangelists = ["ዮሐንስ", "ማቴዎስ", "ማርቆስ", "ሉቃስ"];
-  static const List<String> days = [
-    "ሰኞ",
-    "ማግሰኞ",
-    "ረቡዕ",
-    "ሐሙስ",
-    "አርብ",
-    "ቅዳሜ",
-    "እሁድ",
-  ];
-  static const List<String?> _months = [
-    "መስከረም",
-    "ጥቅምት",
-    "ኅዳር",
-    "ታኅሳስ",
-    "ጥር",
-    "የካቲት",
-    "መጋቢት",
-    "ሚያዝያ",
-    "ግንቦት",
-    "ሰኔ",
-    "ኃምሌ",
-    "ነሐሴ",
-    "ጷጉሜን"
-  ];
 
   List<Map<String, dynamic>> _yeeletTewsak = [
     {"key": "አርብ", "value": 2},
@@ -123,7 +125,7 @@ class Bahirehasab {
       result.add({
         "beal": beal,
         "day": {
-          "month": _months[_months.indexOf(mebajaHamer['month']) +
+          "month": months[months.indexOf(mebajaHamer['month']) +
               (mebajaHamer['date'] + numOfDays) ~/ 30 as int],
           "date": (mebajaHamer['date'] + numOfDays) % 30 == 0
               ? 30
@@ -150,7 +152,7 @@ class Bahirehasab {
         Map<String, dynamic> mebajaHamer = nenewe;
         int? target = _yebealTewsak[holiday_name];
         beal = {
-          "month": _months[_months.indexOf(mebajaHamer['month']) +
+          "month": months[months.indexOf(mebajaHamer['month']) +
               ((mebajaHamer['date'] + target) ~/ 30) as int],
           "date": (mebajaHamer['date'] + target) % 30 == 0
               ? 30
