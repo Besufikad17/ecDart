@@ -6,15 +6,15 @@ class EthiopianCalender {
   int? year;
   int? month;
   int? day;
-  bool? isHoliday;
   String? holiday_name;
+  bool isHoliday = false;
   String? month_name;
 
   EthiopianCalender.named({this.year, this.month, this.day}) {
-    this.month_name = days[this.day! - 1];
+    this.month_name = months[this.month! - 1];
     this.holiday_name =
         getHoliday(months[this.month! - 1], this.day, this.year);
-    this.isHoliday = holiday_name != null ? true : false;
+    this.isHoliday = holiday_name != "" ? true : false;
   }
 
   EthiopianCalender() {
@@ -27,7 +27,7 @@ class EthiopianCalender {
     this.month_name = months[this.month! - 1];
     this.holiday_name =
         getHoliday(months[this.month! - 1], this.day, this.year);
-    this.isHoliday = holiday_name != null ? true : false;
+    this.isHoliday = holiday_name != "" ? true : false;
   }
 
   GregorianCalender toGC() {
@@ -40,7 +40,7 @@ class EthiopianCalender {
     var isNewYear = this.month == 13 || (this.month == 12 && this.day! > 6);
     return new EthiopianCalender.named(
         year: isNewYear ? this.year! + 1 : this.year,
-        month: isNewYear ? 1 : this.month,
+        month: isNewYear ? 1 : this.month! + 1,
         day: this.day);
   }
 

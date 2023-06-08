@@ -1,0 +1,7 @@
+name: ecDart
+description: Ethiopian Date module
+version: 1.0.0+1
+environment:
+  sdk: '^2.12.0'
+dev_dependencies:
+  test: ^1.24.3

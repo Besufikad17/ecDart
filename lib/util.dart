@@ -30,7 +30,7 @@ Iterable<Map<String, dynamic>> getHolidays(int year) {
   return holidays;
 }
 
-dynamic getHoliday(String? month, int? day, int? year) {
+String getHoliday(String? month, int? day, int? year) {
   Iterable<Map<String, dynamic>> holidays = getHolidays(year!);
   for (var i = 0; i < holidays.length; i++) {
     if (holidays.elementAt(i)["month"] == month &&
@@ -38,5 +38,5 @@ dynamic getHoliday(String? month, int? day, int? year) {
       return holidays.elementAt(i)["name"];
     }
   }
-  return false;
+  return "";
 }
