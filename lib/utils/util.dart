@@ -1,5 +1,3 @@
-import 'package:ecDart/calendar/EthiopianCalendar.dart';
-
 import 'Bahirehasab.dart';
 
 const int ethiopicEpoch = 2796;

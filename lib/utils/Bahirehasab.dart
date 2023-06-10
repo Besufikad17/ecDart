@@ -1,14 +1,8 @@
 import '../calendar/EthiopianCalendar.dart';
 
-const List<String> days = [
-  "እሁድ",
-  "ሰኞ",
-  "ማግሰኞ",
-  "ረቡዕ",
-  "ሐሙስ",
-  "አርብ",
-  "ቅዳሜ",
-];
+const List<String> days = ["ሰኞ", "ማግሰኞ", "ረቡዕ", "ሐሙስ", "አርብ", "ቅዳሜ", "እሁድ"];
+
+const List<String> dayss = ["እሁድ", "ሰኞ", "ማግሰኞ", "ረቡዕ", "ሐሙስ", "አርብ", "ቅዳሜ"];
 
 const List<String?> months = [
   "መስከረም",

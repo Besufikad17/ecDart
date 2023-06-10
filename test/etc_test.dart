@@ -11,8 +11,8 @@ void main() {
     var now = new EthiopianCalendar.now();
     expect(now.year, 2015);
     expect(now.month_name, "ሰኔ");
-    expect(now.day, 1);
-    expect(now.day_name, "ሐሙስ");
+    expect(now.day, 3);
+    expect(now.day_name, "ቅዳሜ");
   });
 
   test('testing toGC()', () {

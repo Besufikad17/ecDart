@@ -4,6 +4,7 @@ import 'package:ecDart/utils/util.dart';
 void main() {
   test('testing getHolidays()', () {
     var holidays = getHolidays(2015);
+    print(holidays.elementAt(8));
     expect(holidays.elementAt(8)["month"], "ሚያዝያ");
     expect(holidays.elementAt(8)["day"], 8);
   });
@@ -20,6 +21,6 @@ void main() {
 
   test('testing getDayName()', () {
     var day_name = getDayName(6, 8, 2023);
-    expect(day_name, "ሐሙስ");
+    expect(day_name, 4);
   });
 }

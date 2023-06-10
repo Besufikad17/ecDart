@@ -29,7 +29,7 @@ class EthiopianCalendar {
     this.isHoliday = holiday_name != "" ? true : false;
 
     var gc = this.toGC();
-    this.day_name = days[getDayName(gc.month, gc.day, gc.year)];
+    this.day_name = dayss[getDayName(gc.month, gc.day, gc.year)];
   }
 
   GregorianCalendar toGC() {

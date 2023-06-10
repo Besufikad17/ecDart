@@ -13,7 +13,7 @@ void main() {
     var now = new GregorianCalendar.now();
     expect(now.year, 2023);
     expect(now.month_name, "June");
-    expect(now.day_name, "Thursday");
+    expect(now.day_name, "Saturday");
   });
 
   test('testing toEC()', () {
