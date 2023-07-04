@@ -23,4 +23,8 @@ void main() {
     var day_name = getDayName(6, 8, 2023);
     expect(day_name, 4);
   });
+
+  test('testing getCurrentMonth()', () {
+    expect(getCurrentMonth().length, 30);
+  });
 }
