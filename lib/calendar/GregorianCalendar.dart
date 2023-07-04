@@ -16,7 +16,7 @@ const List<String> _months = [
   "December"
 ];
 
-const List<String> _days = [
+const List<String> gc_days = [
   "Sunday",
   "Monday",
   "Tuesday",
@@ -35,7 +35,7 @@ class GregorianCalendar {
 
   GregorianCalendar({this.year, this.month, this.day}) {
     this.month_name = _months[(this.month! - 1) % 12];
-    this.day_name = _days[getDayName(this.month!, this.day!, this.year!)];
+    this.day_name = gc_days[getDayName(this.month!, this.day!, this.year!)];
   }
 
   GregorianCalendar.now() {
@@ -43,7 +43,7 @@ class GregorianCalendar {
     this.month = DateTime.now().month;
     this.day = DateTime.now().day;
     this.month_name = _months[(this.month! - 1) % 12];
-    this.day_name = _days[getDayName(this.month!, this.day!, this.year!)];
+    this.day_name = gc_days[getDayName(this.month!, this.day!, this.year!)];
   }
 
   EthiopianCalendar toEc() {

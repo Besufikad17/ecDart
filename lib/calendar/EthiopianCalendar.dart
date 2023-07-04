@@ -16,6 +16,9 @@ class EthiopianCalendar {
     this.holiday_name =
         getHoliday(months[this.month! - 1], this.day, this.year);
     this.isHoliday = holiday_name != "" ? true : false;
+
+    var gc = toGC2(this.year!, this.month!, this.day!);
+    this.day_name = dayss[getDayName(gc.month, gc.day, gc.year)];
   }
 
   EthiopianCalendar.now() {

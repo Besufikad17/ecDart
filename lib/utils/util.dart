@@ -1,4 +1,6 @@
 import 'Bahirehasab.dart';
+import '../calendar/EthiopianCalendar.dart';
+import '../calendar/GregorianCalendar.dart';
 
 const int ethiopicEpoch = 2796;
 const int unixEpoch = 719163;
@@ -85,4 +87,28 @@ int fixedFromEthiopic(int year, int month, int day) {
 
 int dateToEpoch(int year, int month, int day) {
   return (fixedFromEthiopic(year, month, day) - unixEpoch) * dayMilliSec;
+}
+
+List<EthiopianCalendar> getCurrentMonth() {
+  var gc = GregorianCalendar.now();
+  var now = gc.toEc();
+  List<EthiopianCalendar> ecs = [];
+
+  for (int i = 1; i < 31; i++) {
+    ecs.add(EthiopianCalendar(year: now.year, month: now.month, day: i));
+  }
+  return ecs;
+}
+
+GregorianCalendar toGC2(int year, int month, int day) {
+  var gc_year =
+      DateTime.fromMillisecondsSinceEpoch(dateToEpoch(year, month, day)).year;
+
+  var gc_month =
+      DateTime.fromMillisecondsSinceEpoch(dateToEpoch(year, month, day)).month;
+
+  var gc_day =
+      DateTime.fromMillisecondsSinceEpoch(dateToEpoch(year, month, day)).day;
+
+  return GregorianCalendar(year: gc_year, month: gc_month, day: gc_day);
 }
