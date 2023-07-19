@@ -73,4 +73,13 @@ class EthiopianCalendar {
     return EthiopianCalendar(
         year: this.year! - 1, month: this.month, day: this.day);
   }
+
+  List<EthiopianCalendar> getMonth() {
+    List<EthiopianCalendar> ecs = [];
+
+    for (int i = 1; i < 31; i++) {
+      ecs.add(EthiopianCalendar(year: this.year, month: this.month, day: i));
+    }
+    return ecs;
+  }
 }

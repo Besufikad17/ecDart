@@ -35,6 +35,11 @@ void main() {
     expect(next_month2.year, 2016);
   });
 
+  test('testing getMonth()', (){
+    var now = EthiopianCalendar.now();
+    expect(now.getMonth().length, 30);
+  });
+
   test('testing previousMonth() EthiopianCalendar', () {
     var ec = new EthiopianCalendar(year: 2015, month: 1, day: 1);
     var prev_month = ec.previousMonth();
