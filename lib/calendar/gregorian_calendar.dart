@@ -1,30 +1,6 @@
-import 'EthiopianCalendar.dart';
-import '../utils/util.dart';
-
-const List<String> _months = [
-  "January",
-  "Feburary",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December"
-];
-
-const List<String> gc_days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednsday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
+import 'ethiopian_calendar.dart';
+import '../utils/helpers/util.dart';
+import '../utils/constants/strings.dart';
 
 class GregorianCalendar {
   int? year;
@@ -34,16 +10,16 @@ class GregorianCalendar {
   String? day_name;
 
   GregorianCalendar({this.year, this.month, this.day}) {
-    this.month_name = _months[(this.month! - 1) % 12];
-    this.day_name = gc_days[getDayName(this.month!, this.day!, this.year!)];
+    this.month_name = ecMonths[(this.month! - 1) % 12];
+    this.day_name = gcDays[getDayName(this.month!, this.day!, this.year!)];
   }
 
   GregorianCalendar.now() {
     this.year = DateTime.now().year;
     this.month = DateTime.now().month;
     this.day = DateTime.now().day;
-    this.month_name = _months[(this.month! - 1) % 12];
-    this.day_name = gc_days[getDayName(this.month!, this.day!, this.year!)];
+    this.month_name = ecMonths[(this.month! - 1) % 12];
+    this.day_name = gcDays[getDayName(this.month!, this.day!, this.year!)];
   }
 
   EthiopianCalendar toEc() {

@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:ecDart/utils/util.dart';
+import 'package:ecDart/utils/helpers/util.dart';
 
 void main() {
   test('testing getHolidays()', () {

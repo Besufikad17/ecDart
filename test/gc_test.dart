@@ -1,4 +1,4 @@
-import 'package:ecDart/calendar/GregorianCalendar.dart';
+import 'package:ecDart/calendar/gregorian_calendar.dart';
 import 'package:test/test.dart';
 
 void main() {

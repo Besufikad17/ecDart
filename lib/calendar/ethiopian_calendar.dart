@@ -1,6 +1,6 @@
-import 'GregorianCalendar.dart';
-import '../utils/Bahirehasab.dart';
-import '../utils/util.dart';
+import 'gregorian_calendar.dart';
+import 'package:ecDart/utils/helpers/util.dart';
+import 'package:ecDart/utils/constants/strings.dart';
 
 class EthiopianCalendar {
   int? year;
@@ -18,7 +18,7 @@ class EthiopianCalendar {
     this.isHoliday = holiday_name != "" ? true : false;
 
     var gc = toGC2(this.year!, this.month!, this.day!);
-    this.day_name = dayss[getDayName(gc.month, gc.day, gc.year)];
+    this.day_name = ecDayss[getDayName(gc.month, gc.day, gc.year)];
   }
 
   EthiopianCalendar.now() {
@@ -32,7 +32,7 @@ class EthiopianCalendar {
     this.isHoliday = holiday_name != "" ? true : false;
 
     var gc = this.toGC();
-    this.day_name = dayss[getDayName(gc.month, gc.day, gc.year)];
+    this.day_name = ecDayss[getDayName(gc.month, gc.day, gc.year)];
   }
 
   GregorianCalendar toGC() {

@@ -1,10 +1,7 @@
-import 'Bahirehasab.dart';
-import '../calendar/EthiopianCalendar.dart';
-import '../calendar/GregorianCalendar.dart';
-
-const int ethiopicEpoch = 2796;
-const int unixEpoch = 719163;
-const int dayMilliSec = 86400000;
+import 'bahirehasab.dart';
+import '../../calendar/ethiopian_calendar.dart';
+import '../../calendar/gregorian_calendar.dart';
+import '../../utils/constants/strings.dart';
 
 Iterable<Map<String, dynamic>> getHolidays(int year) {
   var bh = new Bahirehasab.named(year: year);
