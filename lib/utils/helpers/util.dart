@@ -1,7 +1,7 @@
 import 'bahirehasab.dart';
-import '../../calendar/ethiopian_calendar.dart';
-import '../../calendar/gregorian_calendar.dart';
-import '../../utils/constants/strings.dart';
+import 'package:ecDart/calendar/ethiopian_calendar.dart';
+import 'package:ecDart/calendar/gregorian_calendar.dart';
+import 'package:ecDart/utils/constants/strings.dart';
 
 Iterable<Map<String, dynamic>> getHolidays(int year) {
   var bh = new Bahirehasab.named(year: year);

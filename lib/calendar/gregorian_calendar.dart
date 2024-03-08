@@ -1,6 +1,6 @@
 import 'ethiopian_calendar.dart';
-import '../utils/helpers/util.dart';
-import '../utils/constants/strings.dart';
+import 'package:ecDart/utils/helpers/util.dart';
+import 'package:ecDart/utils/constants/strings.dart';
 
 class GregorianCalendar {
   int? year;
