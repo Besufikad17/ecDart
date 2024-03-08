@@ -28,7 +28,7 @@ Simple re-implementation of Ethiopian and Gregorian calendar in dart based on [A
 - Ethiopian calendar can be implemented by creating `EthiopianCalendar` instance.
 
 ```dart
-   import 'package:ecDart/calendar/EthiopianCalendar.dart';
+   import 'package:ecDart/calendar/ethiopian_calendar.dart';
 
    // creating instance with paramters
    var ec = new EthiopianCalendar(year: 2015, month: 1, day: 1);    
@@ -47,7 +47,7 @@ Simple re-implementation of Ethiopian and Gregorian calendar in dart based on [A
 - `EthiopianCalendar` instance contains method called `toGC()` which is used to convert a given Ethiopian date to Gregorian.
 
 ```dart
-  import 'package:ecDart/calendar/EthiopianCalendar.dart';
+  import 'package:ecDart/calendar/ethiopian_calendar.dart';
   
   // creating instance that contains the current date
   var now = new EthiopianCalendar.now();         
@@ -62,7 +62,7 @@ Simple re-implementation of Ethiopian and Gregorian calendar in dart based on [A
 - `EthiopianCalendar` instance contains methods to get the next month, previous month, next year and previous year in the form of Ethiopian date.
 
 ```dart
-   import 'package:ecDart/calendar/EthiopianCalendar.dart';
+   import 'package:ecDart/calendar/ethiopian_calendar.dart';
 
    // creating instance that contains the current date
    var now = new EthiopianCalendar.now();                             
@@ -85,7 +85,7 @@ Simple re-implementation of Ethiopian and Gregorian calendar in dart based on [A
 - Gregorian calendar can be implemented by creating `GregorianCalendar` instance.
 
 ```dart
-   import 'package:ecDart/calendar/GregorianCalendar.dart';
+   import 'package:ecDart/calendar/gregorian_calendar.dart';
 
    // creating instance with paramters
    var gc = new GregorianCalendar(year: 2023, month: 6, day: 8);
@@ -103,7 +103,7 @@ Simple re-implementation of Ethiopian and Gregorian calendar in dart based on [A
 - `GregorianCalendar` instance contains method called `toEC()` which is used to convert a given Gregorian date to Ethiopian.
 
 ```dart
-  import 'package:ecDart/calendar/GregorianCalendar.dart';
+  import 'package:ecDart/calendar/gregorian_calendar.dart';
   
   // creating instance that contains the current date
   var now = new GregorianCalendar.now();
@@ -117,7 +117,7 @@ Simple re-implementation of Ethiopian and Gregorian calendar in dart based on [A
 - `GregorianCalendar` instance contains methods to get the next month, previous month, next year and previous year in the form of Gregorian date.
 
 ```dart
-   import 'package:ecDart/calendar/GregorianCalendar.dart';
+   import 'package:ecDart/calendar/gregorian_calendar.dart';
 
    // creating instance that contains the current date
    var now = new GregorianCalendar.now();                             
@@ -140,7 +140,7 @@ Simple re-implementation of Ethiopian and Gregorian calendar in dart based on [A
 - ecDart contains utility functions for calculating month and day of movable and non movabele holidays.
 
 ```dart
-   import 'package:ecDart/utils/util.dart';
+   import 'package:ecDart/utils/helpers/util.dart';
 
    // getting all holidays of a given Ethiopian year 
    var holidays = getHolidays(2015);
