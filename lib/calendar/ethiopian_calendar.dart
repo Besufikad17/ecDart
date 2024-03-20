@@ -6,19 +6,19 @@ class EthiopianCalendar {
   int? year;
   int? month;
   int? day;
-  String? holiday_name;
+  String? holidayName;
   bool isHoliday = false;
-  String? month_name;
-  String? day_name;
+  String? monthName;
+  String? dayName;
 
   EthiopianCalendar({this.year, this.month, this.day}) {
-    this.month_name = months[this.month! - 1];
-    this.holiday_name =
-        getHoliday(months[this.month! - 1], this.day, this.year);
-    this.isHoliday = holiday_name != "" ? true : false;
+    this.monthName = ecMonths[this.month! - 1];
+    this.holidayName =
+        getHoliday(ecMonths[this.month! - 1], this.day, this.year);
+    this.isHoliday = holidayName != "" ? true : false;
 
     var gc = toGC2(this.year!, this.month!, this.day!);
-    this.day_name = ecDayss[getDayName(gc.month, gc.day, gc.year)];
+    this.dayName = ecDayss[getDayName(gc.month, gc.day, gc.year)];
   }
 
   EthiopianCalendar.now() {
@@ -26,13 +26,13 @@ class EthiopianCalendar {
     this.year = ((4 * (fixed - ethiopicEpoch) + 1463) ~/ 1461);
     this.month = (((fixed - fixedFromEthiopic(this.year!, 1, 1)) ~/ 30) + 1);
     this.day = fixed + 1 - fixedFromEthiopic(this.year!, this.month!, 1);
-    this.month_name = months[(this.month! - 1) % 13];
-    this.holiday_name =
-        getHoliday(months[this.month! - 1], this.day, this.year);
-    this.isHoliday = holiday_name != "" ? true : false;
+    this.monthName = ecMonths[(this.month! - 1) % 13];
+    this.holidayName =
+        getHoliday(ecMonths[this.month! - 1], this.day, this.year);
+    this.isHoliday = holidayName != "" ? true : false;
 
     var gc = this.toGC();
-    this.day_name = ecDayss[getDayName(gc.month, gc.day, gc.year)];
+    this.dayName = ecDayss[getDayName(gc.month, gc.day, gc.year)];
   }
 
   GregorianCalendar toGC() {

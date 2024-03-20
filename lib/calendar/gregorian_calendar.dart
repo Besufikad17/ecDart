@@ -6,20 +6,20 @@ class GregorianCalendar {
   int? year;
   int? month;
   int? day;
-  String? month_name;
-  String? day_name;
+  String? monthName;
+  String? dayName;
 
   GregorianCalendar({this.year, this.month, this.day}) {
-    this.month_name = ecMonths[(this.month! - 1) % 12];
-    this.day_name = gcDays[getDayName(this.month!, this.day!, this.year!)];
+    this.monthName = ecMonths[(this.month! - 1) % 12];
+    this.dayName = gcDays[getDayName(this.month!, this.day!, this.year!)];
   }
 
   GregorianCalendar.now() {
     this.year = DateTime.now().year;
     this.month = DateTime.now().month;
     this.day = DateTime.now().day;
-    this.month_name = ecMonths[(this.month! - 1) % 12];
-    this.day_name = gcDays[getDayName(this.month!, this.day!, this.year!)];
+    this.monthName = ecMonths[(this.month! - 1) % 12];
+    this.dayName = gcDays[getDayName(this.month!, this.day!, this.year!)];
   }
 
   EthiopianCalendar toEc() {

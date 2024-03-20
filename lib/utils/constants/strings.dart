@@ -2,7 +2,7 @@ const int ethiopicEpoch = 2796;
 const int unixEpoch = 719163;
 const int dayMilliSec = 86400000;
 
-const List<String> ecMonths = [
+const List<String> gcMonths = [
   "January",
   "Feburary",
   "March",
@@ -31,7 +31,7 @@ const List<String> ecDays = ["ሰኞ", "ማግሰኞ", "ረቡዕ", "ሐሙስ",
 
 const List<String> ecDayss = ["እሁድ", "ሰኞ", "ማግሰኞ", "ረቡዕ", "ሐሙስ", "አርብ", "ቅዳሜ"];
 
-const List<String?> months = [
+const List<String?> ecMonths = [
   "መስከረም",
   "ጥቅምት",
   "ኅዳር",

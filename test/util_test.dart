@@ -27,4 +27,8 @@ void main() {
   test('testing getCurrentMonth()', () {
     expect(getCurrentMonth().length, 30);
   });
+
+  test('testing fixedFromEthiopic()', () {
+    expect(fixedFromEthiopic(2016, 7, 11), 738965);
+  });
 }

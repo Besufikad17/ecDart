@@ -44,9 +44,9 @@ class Bahirehasab {
     int month = yebealeMetkihWer();
     int date;
     int? dayTewsak;
-    yeeletTewsak.forEach((el) => {
+    yeeletTewsak.forEach((el) {
           if (el['key'] == ecDays[(meskerem1 + metkih - 1) % 7])
-            dayTewsak = el['value']
+            dayTewsak = el['value'];
         });
     String monthName = dayTewsak! + metkih > 30 ? 'የካቲት' : 'ጥር';
     if (month == 2) {
@@ -54,9 +54,9 @@ class Bahirehasab {
       monthName = 'የካቲት';
       int tikimt1 = (meskerem1 + 2) % 7;
       int metkihElet = (tikimt1 + metkih - 1) % 7;
-      yeeletTewsak.forEach((el) => {
+      yeeletTewsak.forEach((el) {
             if (el['key'] == ecDays[metkihElet])
-              dayTewsak = el['value']
+              dayTewsak = el['value'];
           });
     }
     date = metkih + dayTewsak!;
@@ -70,7 +70,7 @@ class Bahirehasab {
       result.add({
         "beal": beal,
         "day": {
-          "month": months[months.indexOf(mebajaHamer['month']) +
+          "month": ecMonths[ecMonths.indexOf(mebajaHamer['month']) +
               (mebajaHamer['date'] + numOfDays) ~/ 30 as int],
           "date": (mebajaHamer['date'] + numOfDays) % 30 == 0
               ? 30
@@ -97,7 +97,7 @@ class Bahirehasab {
         Map<String, dynamic> mebajaHamer = nenewe;
         int? target = yebealTewsak[holiday_name];
         beal = {
-          "month": months[months.indexOf(mebajaHamer['month']) +
+          "month": ecMonths[ecMonths.indexOf(mebajaHamer['month']) +
               ((mebajaHamer['date'] + target) ~/ 30) as int],
           "date": (mebajaHamer['date'] + target) % 30 == 0
               ? 30
